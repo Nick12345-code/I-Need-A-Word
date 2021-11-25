@@ -1,19 +1,22 @@
+using UnityEngine;
+
 public class PlayerState : BaseState
 {
     TurnSM sm;
 
-    public PlayerState(TurnSM stateMachine) : base("PlayerState", stateMachine) => sm = stateMachine;
+    public PlayerState(TurnSM stateMachine) : base("PlayerState", stateMachine) => sm = stateMachine;  
 
     public override void Enter()
     {
-        base.Enter();
-
         sm.buttonGenerator.UpdateButtons(true);
+
+        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.playerTurnIndicator, true);
+        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.enemyTurnIndicator, false);
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
+        sm.player.ShowKeyboard();
 
         if (sm.player.playerWon)
         {

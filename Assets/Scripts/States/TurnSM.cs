@@ -15,6 +15,8 @@ public class TurnSM : StateMachine
     public ButtonGenerator buttonGenerator;
     public Player player;
     public Results results;
+    public TurnIndicator turnIndicator;
+
 
     void Awake()
     {

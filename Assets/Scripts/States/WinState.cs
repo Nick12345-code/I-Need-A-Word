@@ -8,8 +8,8 @@ public class WinState : BaseState
 
     public override void Enter()
     {
-        base.Enter();
-
         sm.results.ShowResults(sm.results.winSentence);
+
+        sm.wordUI.GameOverEffect();
     }
 }

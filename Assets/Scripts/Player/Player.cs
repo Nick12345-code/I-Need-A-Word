@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] WordGenerator generator;
     [SerializeField] PlayerScore score;
     [Space]
+    [SerializeField] KeyCode showKeyboardKey;
     [SerializeField] GameObject keyboardPanel;
     public GameObject selected;
     public bool hadTurn;
@@ -66,5 +67,13 @@ public class Player : MonoBehaviour
             if (!letter.GetComponentInChildren<TextMeshProUGUI>().enabled) return;
         }
         playerWon = true;
+    }
+
+    public void ShowKeyboard()
+    {
+        if (!Input.GetKeyDown(showKeyboardKey)) return;
+
+        if (keyboardPanel.activeInHierarchy) keyboardPanel.SetActive(false);
+        else keyboardPanel.SetActive(true);
     }
 }

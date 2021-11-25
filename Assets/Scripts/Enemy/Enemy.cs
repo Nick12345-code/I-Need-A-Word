@@ -16,8 +16,10 @@ public class Enemy : MonoBehaviour
     public float enemyThinkingTime;
     public char chosenLetter;
     [SerializeField, Range(0, 1)] float vowelChance = 0.20f;
+    [SerializeField, Range(0, 1)] float commonsChance = 0.60f;
     public List<char> alphabet = new List<char>{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
     public List<char> vowels = new List<char> { 'A', 'E', 'I', 'O', 'U' };
+    public List<char> commons = new List<char> { 'R', 'T', 'N', 'S', 'L', 'C' };
 
     public void CheckRandomLetter()
     {
@@ -34,8 +36,7 @@ public class Enemy : MonoBehaviour
                         letterText.GetComponent<Image>().color = Color.yellow;
                     }
                 }
-                alphabet.Remove(chosenLetter);
-                vowels.Remove(chosenLetter);
+                RemoveLetter();
                 LoseCheck();
                 hadTurn = true;
                 return;
@@ -47,8 +48,7 @@ public class Enemy : MonoBehaviour
             if (letter != chosenLetter)
             {
                 score.LosePoints(1);
-                alphabet.Remove(chosenLetter);
-                vowels.Remove(chosenLetter);
+                RemoveLetter();
                 hadTurn = true;
                 return;
             }
@@ -68,14 +68,28 @@ public class Enemy : MonoBehaviour
     {
         float randomValue = Random.value;
 
-        if (randomValue <= vowelChance)
+        if (randomValue <= vowelChance) // 20% Probability
         {
             if (vowels.Count != 0)
             {
                 return vowels[Random.Range(0, vowels.Count)]; 
             }
         }
+        else if (randomValue <= commonsChance) // 40% Probability
+        {
+            if (commons.Count != 0)
+            {
+                return commons[Random.Range(0, commons.Count)];
+            }
+        }
 
         return alphabet[Random.Range(0, alphabet.Count)];
+    }
+
+    void RemoveLetter()
+    {
+        alphabet.Remove(chosenLetter);
+        vowels.Remove(chosenLetter);
+        commons.Remove(chosenLetter);
     }
 }

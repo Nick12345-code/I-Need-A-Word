@@ -3,56 +3,65 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-/// <summary>
-/// controls generating UI
-/// </summary>
 public class WordUI : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] WordGenerator wordGenerator;
-    [Header("")]
-    [SerializeField] GameObject playerLetterBox;
-    [SerializeField] GameObject enemyLetterBox;
-    [SerializeField] Transform playerPanel;
-    [SerializeField] Transform enemyPanel;
+    [Header("Setup")]
+    [SerializeField] GridLayoutGroup playerGridLayout;
+    [SerializeField] GridLayoutGroup enemyGridLayout;
+    public Transform playerPanel;
+    public Transform enemyPanel;
+    [Header("Lists")]
     public List<GameObject> playerLetters = new List<GameObject>();
     public List<GameObject> enemyLetters = new List<GameObject>();
-    [SerializeField] HorizontalLayoutGroup playoutGroup;
-    [SerializeField] RectTransform plengthRectTransform;
-    [SerializeField] HorizontalLayoutGroup elayoutGroup;
-    [SerializeField] RectTransform elengthRectTransform;
+    [Header("Fall Effect")]
+    [SerializeField, Range(10, 100)] float minXForce = 10.0f;
+    [SerializeField, Range(10, 100)] float maxXForce = 100.0f;
+    [SerializeField, Range(10, 100)] float minYForce = 10.0f;
+    [SerializeField, Range(10, 100)] float maxYForce = 100.0f;
 
-    /// <summary>
-    /// generates player's letters
-    /// </summary>
-    public void GeneratePlayerLetters()
+    void Start()
+    {
+        playerGridLayout.enabled = true;
+        enemyGridLayout.enabled = true;
+    }
+
+    public void GenerateLetters(Transform panel, List<GameObject> list)
     {
         foreach (char letter in wordGenerator.randomWord)
         {
-            //GameObject a = Instantiate(playerLetterBox);
             GameObject a = ObjectPool.sharedInstance.GetPooledObject();
-            a.SetActive(true);
-            a.transform.SetParent(playerPanel);
+            a.transform.SetParent(panel);
             a.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
-            playerLetters.Add(a);
+            list.Add(a);
             a.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+            a.GetComponent<Rigidbody2D>().isKinematic = true;
+            a.SetActive(true);
         }
     }
 
-    /// <summary>
-    /// generates enemy's letters
-    /// </summary>
-    public void GenerateEnemyLetters()
+    public void GameOverEffect()
     {
-        foreach (char letter in wordGenerator.randomWord)
+        playerGridLayout.enabled = false;
+        enemyGridLayout.enabled = false;
+
+        foreach (GameObject letterBox in playerLetters)
         {
-            //GameObject a = Instantiate(enemyLetterBox);
-            GameObject a = ObjectPool.sharedInstance.GetPooledObject();
-            a.SetActive(true);
-            a.transform.SetParent(enemyPanel);
-            a.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
-            enemyLetters.Add(a);
-            a.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+            letterBox.GetComponent<Rigidbody2D>().isKinematic = false;
+            letterBox.GetComponent<Rigidbody2D>().AddForce(GetRandomForce(), ForceMode2D.Impulse);
         }
+
+        foreach (GameObject letterBox in enemyLetters)
+        {
+            letterBox.GetComponent<Rigidbody2D>().isKinematic = false;
+            letterBox.GetComponent<Rigidbody2D>().AddForce(GetRandomForce(), ForceMode2D.Impulse);
+        }
+    }
+
+    Vector2 GetRandomForce()
+    {
+        Vector2 randomValue = new Vector2(Random.Range(minXForce, maxXForce), Random.Range(minYForce, maxYForce));
+        return randomValue;
     }
 }

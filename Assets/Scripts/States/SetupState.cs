@@ -6,11 +6,11 @@ public class SetupState : BaseState
 
     public override void Enter()
     {
-        base.Enter();
-
         sm.wordGenerator.GenerateRandomWord();
-        sm.wordUI.GeneratePlayerLetters();
-        sm.wordUI.GenerateEnemyLetters();
+
+        sm.wordUI.GenerateLetters(sm.wordUI.playerPanel, sm.wordUI.playerLetters);
+        sm.wordUI.GenerateLetters(sm.wordUI.enemyPanel, sm.wordUI.enemyLetters);
+
         sm.buttonGenerator.GenerateButtons();
 
         stateMachine.ChangeState(sm.playerState);

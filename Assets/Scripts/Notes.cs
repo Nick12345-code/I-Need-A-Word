@@ -1,8 +1,11 @@
-// the game is played in an office late at night
-// you press keys on a keyboard to select letters
-
-
-// Vending Machine
-// input correct letters and get correct word win
-// input incorrect letter and the price gets put up
-// if you reach $10 you lose
+// TODO: Add 'The word was ____' to lose state
+// TODO: Create icons for all buttons
+/*
+- quit
+- return to menu 
+- restart
+- back
+- currency
+- lives
+*/
+// TODO: 

@@ -8,8 +8,6 @@ public class LoseState : BaseState
 
     public override void Enter()
     {
-        base.Enter();
-
         sm.results.ShowResults(sm.results.loseSentence);
     }
 }

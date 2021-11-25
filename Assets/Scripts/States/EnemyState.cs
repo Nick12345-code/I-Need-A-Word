@@ -8,16 +8,15 @@ public class EnemyState : BaseState
 
     public override void Enter()
     {
-        base.Enter();
-
         isDone = false;
         sm.buttonGenerator.UpdateButtons(false);
+
+        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.playerTurnIndicator, false);
+        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.enemyTurnIndicator, true);
     }
 
     public override void UpdateLogic()
     {
-        base.UpdateLogic();
-
         EnemyTurn();
 
         if (sm.enemy.playerLost)
