@@ -8,6 +8,7 @@ public class ButtonGenerator : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] Player player;
     [Space]
+    [SerializeField] Button keyboardButton;
     [SerializeField] GameObject letterButton;
     [SerializeField] Transform letterHolder;
     [SerializeField] List<GameObject> letterButtons = new List<GameObject>();
@@ -31,5 +32,6 @@ public class ButtonGenerator : MonoBehaviour
         {
             button.GetComponent<Button>().interactable = interactable;
         }
+        keyboardButton.interactable = interactable;
     }
 }
