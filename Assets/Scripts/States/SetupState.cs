@@ -6,7 +6,7 @@ public class SetupState : BaseState
 
     public override void Enter()
     {
-        sm.wordGenerator.GenerateRandomWord();
+        sm.wordGenerator.GetRandomWordFromDictionary();
 
         sm.wordUI.GenerateLetters(sm.wordUI.playerPanel, sm.wordUI.playerLetters);
         sm.wordUI.GenerateLetters(sm.wordUI.enemyPanel, sm.wordUI.enemyLetters);

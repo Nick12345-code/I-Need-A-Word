@@ -16,8 +16,6 @@ public class PlayerState : BaseState
 
     public override void UpdateLogic()
     {
-        sm.player.ShowKeyboard();
-
         if (sm.player.playerWon)
         {
             stateMachine.ChangeState(sm.winState);

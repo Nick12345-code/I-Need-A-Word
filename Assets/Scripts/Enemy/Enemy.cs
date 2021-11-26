@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [Space]
     public bool hadTurn;
     public bool playerLost;
-    [Header("Computer AI")]
+    [Header("AI")]
     public float enemyThinkingTime;
     public char chosenLetter;
     [SerializeField, Range(0, 1)] float vowelChance = 0.20f;

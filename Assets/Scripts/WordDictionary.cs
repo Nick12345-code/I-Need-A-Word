@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// loads words from dictionary
-/// </summary>
 public class WordDictionary : MonoBehaviour
 {
     public Dictionary<int, List<string>> words = new Dictionary<int, List<string>>();

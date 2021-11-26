@@ -71,8 +71,6 @@ public class Player : MonoBehaviour
 
     public void ShowKeyboard()
     {
-        if (!Input.GetKeyDown(showKeyboardKey)) return;
-
         if (keyboardPanel.activeInHierarchy) keyboardPanel.SetActive(false);
         else keyboardPanel.SetActive(true);
     }

@@ -9,7 +9,7 @@ public class WordGenerator : MonoBehaviour
     [Space]
     public string randomWord;
     
-    public void GenerateRandomWord()
+    public void GetRandomWordFromDictionary()
     {
         System.Random rand = new System.Random();
         List<string> temp = dictionary.words.ElementAt(rand.Next(0, dictionary.words.Count)).Value;
