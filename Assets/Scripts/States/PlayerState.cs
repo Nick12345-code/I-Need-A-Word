@@ -8,7 +8,7 @@ public class PlayerState : BaseState
 
     public override void Enter()
     {
-        sm.buttonGenerator.UpdateButtons(true);
+        sm.buttonGenerator.keyboardButton.enabled = true;
 
         sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.playerTurnIndicator, true);
         sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.enemyTurnIndicator, false);

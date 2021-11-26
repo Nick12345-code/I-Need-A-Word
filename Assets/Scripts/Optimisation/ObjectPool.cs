@@ -7,6 +7,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] List<GameObject> pooledObjects;
     [SerializeField] GameObject objectToPool;
     [SerializeField] int amountToPool;
+    [SerializeField] Transform pooledObjectsStorage;
 
     void Awake()
     {
@@ -16,6 +17,7 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < amountToPool; i++)
         {
             temp = Instantiate(objectToPool);
+            temp.transform.SetParent(pooledObjectsStorage);
             temp.SetActive(false);
             pooledObjects.Add(temp);
         }
@@ -29,8 +31,4 @@ public class ObjectPool : MonoBehaviour
         }
         return null;
     }
-
-    // to get the pooled objects (instead of instantiating)
-    // GameObject bullet = ObjectPool.sharedInstance.GetPooledObject();
-    // gameObject.SetActive(false); - returns gameobject to pool
 }

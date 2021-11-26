@@ -8,6 +8,7 @@ public class ButtonGenerator : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] Player player;
     [Space]
+    public Button keyboardButton;
     [SerializeField] GameObject letterButton;
     [SerializeField] Transform letterHolder;
     [SerializeField] List<GameObject> letterButtons = new List<GameObject>();
@@ -22,14 +23,6 @@ public class ButtonGenerator : MonoBehaviour
             a.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
             a.transform.GetComponent<Button>().onClick.AddListener(player.CheckLetter);
             letterButtons.Add(a);
-        }
-    }
-
-    public void UpdateButtons(bool interactable)
-    {
-        foreach (GameObject button in letterButtons)
-        {
-            button.GetComponent<Button>().interactable = interactable;
         }
     }
 }

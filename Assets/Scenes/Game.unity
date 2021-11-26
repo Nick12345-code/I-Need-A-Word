@@ -251,8 +251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLength: 3
   maxLength: 11
-  minLetters: 2
+  minLetters: 5
   maxLetters: 11
+  txt: {fileID: 4900000, guid: 9087f217574509a4db33336fa4ebc78a, type: 3}
 --- !u!1 &211788749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,6 +1484,7 @@ MonoBehaviour:
   pooledObjects: []
   objectToPool: {fileID: 2331895812343017006, guid: 9fe02fa160923b14dbe39066e669623d, type: 3}
   amountToPool: 30
+  pooledObjectsStorage: {fileID: 717407983}
 --- !u!1 &779269860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 211788752}
+  keyboardButton: {fileID: 1570431950}
   letterButton: {fileID: 3576974038637599910, guid: d52e08e43a7e04c40833805ed83e6c23, type: 3}
   letterHolder: {fileID: 317425577}
   letterButtons: []
@@ -2733,10 +2736,10 @@ RectTransform:
   m_Father: {fileID: 779269864}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 894.406, y: -325.73395}
-  m_SizeDelta: {x: 277.1881, y: 174.5321}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -200, y: -100}
+  m_SizeDelta: {x: 371.0962, y: 169.24988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570431950
 MonoBehaviour:
@@ -2814,8 +2817,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 54d889f826e40a74b81c9937057ac6c3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3643,7 +3646,7 @@ MonoBehaviour:
   word: {fileID: 179119119}
   hadTurn: 0
   playerLost: 0
-  enemyThinkingTime: 0.5
+  enemyThinkingTime: 3
   chosenLetter: 0
   vowelChance: 0.2
   commonsChance: 0.6

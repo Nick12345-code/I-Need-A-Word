@@ -8,14 +8,13 @@ public class WordDictionary : MonoBehaviour
     [SerializeField] int maxLength;
     [SerializeField] int minLetters;
     [SerializeField] int maxLetters;
-    TextAsset txt;
+    [SerializeField] TextAsset txt;
     string[] dictionary;
 
     void Awake() => LoadWordsFromFile();
 
     void LoadWordsFromFile()
     {
-        txt = (TextAsset)Resources.Load("English");
         dictionary = txt.text.Split("\n"[0]);
         AddWordsToList();
     }

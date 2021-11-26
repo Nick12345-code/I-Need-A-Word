@@ -9,7 +9,7 @@ public class EnemyState : BaseState
     public override void Enter()
     {
         isDone = false;
-        sm.buttonGenerator.UpdateButtons(false);
+        sm.buttonGenerator.keyboardButton.enabled = false;
 
         sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.playerTurnIndicator, false);
         sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.enemyTurnIndicator, true);
