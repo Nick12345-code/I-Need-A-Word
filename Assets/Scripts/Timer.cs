@@ -39,6 +39,6 @@ public class Timer : MonoBehaviour
     {
         StopCoroutine("Countdown");
         timeValue = 0;
-        GameManager.playerLost = true;
+        GameManager.hasLost = true;
     }
 }

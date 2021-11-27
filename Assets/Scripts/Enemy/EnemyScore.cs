@@ -1,35 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class EnemyScore : MonoBehaviour
 {
-    [SerializeField] Player player;
-    [SerializeField] int maxPoints;
+    [SerializeField] float points;
+    [SerializeField] float maxPoints;
     [SerializeField] TextMeshProUGUI pointsText;
-    public int points;
-    public int Points
-    {
-        get { return points; }
-        set
-        {
-            if (points == value) return;
-            points = value;
-            if (points == 0)
-            {
-                player.playerWon = true;
-            }
-        }
-    }
+    [SerializeField] Image fill;
 
     void Start()
     {
         points = maxPoints;
-        pointsText.text = points.ToString();
+        pointsText.text = points.ToString("0");
+        fill.fillAmount = points / maxPoints;
     }
 
-    public void LosePoints(int amount)
+    public void LosePoints(float amount)
     {
         points -= amount;
-        pointsText.text = points.ToString();
+        pointsText.text = points.ToString("0");
+        fill.fillAmount = points / maxPoints;
     }
 }

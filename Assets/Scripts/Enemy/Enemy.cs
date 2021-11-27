@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         {
             if (letter.GetComponent<Image>().color != Color.yellow) return;
         }
-        playerLost = true;
+        GameManager.hasLost = true;
     }
 
     char GetRandomLetter()

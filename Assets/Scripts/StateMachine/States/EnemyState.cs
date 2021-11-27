@@ -10,18 +10,19 @@ public class EnemyState : BaseState
     {
         isDone = false;
         sm.buttonGenerator.keyboardButton.enabled = false;
-
-        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.playerTurnIndicator, false);
-        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.enemyTurnIndicator, true);
     }
 
     public override void UpdateLogic()
     {
         EnemyTurn();
 
-        if (sm.enemy.playerLost)
+        if (GameManager.hasLost)
         {
             stateMachine.ChangeState(sm.loseState);
+        }
+        else if (GameManager.hasWon)
+        {
+            stateMachine.ChangeState(sm.winState);
         }
         else if (sm.enemy.hadTurn)
         {

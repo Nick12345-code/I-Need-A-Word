@@ -9,16 +9,17 @@ public class PlayerState : BaseState
     public override void Enter()
     {
         sm.buttonGenerator.keyboardButton.enabled = true;
-
-        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.playerTurnIndicator, true);
-        sm.turnIndicator.UpdateTurnIndicatorAnimation(sm.turnIndicator.enemyTurnIndicator, false);
     }
 
     public override void UpdateLogic()
     {
-        if (sm.player.playerWon)
+        if (GameManager.hasWon)
         {
             stateMachine.ChangeState(sm.winState);
+        }
+        else if (GameManager.hasLost)
+        {
+            stateMachine.ChangeState(sm.loseState);
         }
         else if (sm.player.hadTurn)
         {

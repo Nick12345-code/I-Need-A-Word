@@ -1,29 +1,38 @@
 using UnityEngine;
+using UnityEngine.UI;   
 using TMPro;
 
-/// <summary>
-/// currently unused but controls player score for 3D element of game
-/// </summary>
 public class PlayerScore : MonoBehaviour
 {
-    public int points;
-    [SerializeField] int maxPoints;
+    [SerializeField] float points;
+    public float Points
+    {
+        get { return points; }
+        set
+        {
+            if (points == value) return;
+            points = value;
+            if (points <= 0)
+            {
+                GameManager.hasLost = true;
+            }
+        }
+    }
+    [SerializeField] float maxPoints;
     [SerializeField] TextMeshProUGUI pointsText;
+    [SerializeField] Image fill;
 
-    private void Start()
+    void Start()
     {
         points = maxPoints;
-        pointsText.text = points.ToString();
+        pointsText.text = points.ToString("0");
+        fill.fillAmount = points / maxPoints;
     }
 
-    private void Update()
-    {
-        
-    }
-
-    public void LosePoints(int amount)
+    public void LosePoints(float amount)
     {
         points -= amount;
-        pointsText.text = points.ToString();
+        pointsText.text = points.ToString("0");
+        fill.fillAmount = points / maxPoints;
     }
 }
