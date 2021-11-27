@@ -16,8 +16,7 @@ public class Player : MonoBehaviour
     public bool hadTurn;
     public bool playerWon;
 
-    // checks if player got the correct letter
-    public void CheckLetter()
+    public void CheckIfPlayerChoseCorrectLetter()
     {
         selected = EventSystem.current.currentSelectedGameObject;
 
@@ -34,7 +33,7 @@ public class Player : MonoBehaviour
                         letterText.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
                     }
                 }
-                WinCheck();
+                CheckIfPlayerHasWon();
                 keyboardPanel.SetActive(false);
                 hadTurn = true;
                 return;
@@ -60,7 +59,7 @@ public class Player : MonoBehaviour
         selected.GetComponent<Button>().targetGraphic.color = color;
     }
 
-    void WinCheck()
+    void CheckIfPlayerHasWon()
     {
         foreach (GameObject letter in ui.playerLetters)
         {

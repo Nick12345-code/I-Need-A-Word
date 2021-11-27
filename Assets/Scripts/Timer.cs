@@ -1,34 +1,44 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timeText;
-    [SerializeField] float timeValue = 120;
+    [SerializeField] int timeValue = 120;
+    WaitForSeconds oneSecond = new WaitForSeconds(1);
 
-    void Update()
+    void Start()
     {
-        Countdown();
         DisplayTime(timeValue);
+        StartCoroutine(Countdown(timeValue));
     }
 
-    void Countdown()
+    IEnumerator Countdown(int seconds)
     {
-        if (timeValue > 0)
+        timeValue = seconds;
+
+        while (timeValue > 0)
         {
-            timeValue -= Time.deltaTime;
+            yield return oneSecond;
+            timeValue--;
+            DisplayTime(timeValue);
         }
-        else
-        {
-            timeValue = 0;
-            // lose state
-        }
+
+        StopCountdown();
     }
 
-    void DisplayTime(float time)
+    void DisplayTime(int time)
     {
-        float minutes = Mathf.FloorToInt(time / 60);
-        float seconds = Mathf.FloorToInt(time % 60);
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
         timeText.text = string.Format("{00}:{1:00}", minutes, seconds);
+    }
+
+    void StopCountdown()
+    {
+        StopCoroutine("Countdown");
+        timeValue = 0;
+        GameManager.playerLost = true;
     }
 }

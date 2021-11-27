@@ -21,7 +21,7 @@ public class ButtonGenerator : MonoBehaviour
             GameObject a = Instantiate(letterButton);
             a.transform.SetParent(letterHolder);
             a.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
-            a.transform.GetComponent<Button>().onClick.AddListener(player.CheckLetter);
+            a.transform.GetComponent<Button>().onClick.AddListener(player.CheckIfPlayerChoseCorrectLetter);
             letterButtons.Add(a);
         }
     }
