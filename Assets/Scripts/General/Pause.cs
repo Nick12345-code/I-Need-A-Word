@@ -3,18 +3,8 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject menu;
-    [SerializeField] KeyCode pause;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(pause))
-        {
-            if (!menu.activeSelf) PauseGame();
-            else ResumeGame();
-        }
-    }
-
-    void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0.0f;
         menu.SetActive(true);
@@ -25,7 +15,4 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1.0f;
         menu.SetActive(false);
     }
-
-
-
 }

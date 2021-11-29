@@ -2,14 +2,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool hasWon;
-    public static bool hasLost;
-
-    void Start()
+    static GameManager instance;
+    public static GameManager Instance
     {
-        hasWon = false;
-        hasLost = false;
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<GameManager>();
+            return instance;
+        }
     }
+
+    public bool hasWon;
+    public bool hasLost;
+    public float timerValue;
+
+    void Awake() => DontDestroyOnLoad(gameObject);
+
+
+
 
 
 }

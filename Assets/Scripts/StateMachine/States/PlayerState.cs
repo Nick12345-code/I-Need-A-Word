@@ -13,11 +13,11 @@ public class PlayerState : BaseState
 
     public override void UpdateLogic()
     {
-        if (GameManager.hasWon)
+        if (GameManager.Instance.hasWon)
         {
             stateMachine.ChangeState(sm.winState);
         }
-        else if (GameManager.hasLost)
+        else if (GameManager.Instance.hasLost)
         {
             stateMachine.ChangeState(sm.loseState);
         }

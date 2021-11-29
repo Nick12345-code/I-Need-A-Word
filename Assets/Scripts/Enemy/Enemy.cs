@@ -6,7 +6,6 @@ using TMPro;
 public class Enemy : MonoBehaviour
 {
     [Header("Scripts")]
-    [SerializeField] EnemyScore score;
     [SerializeField] WordUI ui;
     [SerializeField] WordGenerator word;
     [Space]
@@ -47,7 +46,6 @@ public class Enemy : MonoBehaviour
         {
             if (letter != chosenLetter)
             {
-                score.LosePoints(1);
                 RemoveLetter();
                 hadTurn = true;
                 return;
@@ -61,7 +59,7 @@ public class Enemy : MonoBehaviour
         {
             if (letter.GetComponent<Image>().color != Color.yellow) return;
         }
-        GameManager.hasLost = true;
+        GameManager.Instance.hasLost = true;
     }
 
     char GetRandomLetter()

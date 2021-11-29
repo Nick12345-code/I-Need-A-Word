@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         {
             if (!letter.GetComponentInChildren<TextMeshProUGUI>().enabled) return;
         }
-        GameManager.hasWon = true;
+        GameManager.Instance.hasWon = true;
     }
 
     public void ShowKeyboard()

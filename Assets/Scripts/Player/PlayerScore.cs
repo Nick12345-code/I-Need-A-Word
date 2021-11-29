@@ -14,7 +14,7 @@ public class PlayerScore : MonoBehaviour
             points = value;
             if (points <= 0)
             {
-                GameManager.hasLost = true;
+                GameManager.Instance.hasLost = true;
             }
         }
     }

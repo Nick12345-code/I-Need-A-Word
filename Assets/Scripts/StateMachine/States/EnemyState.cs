@@ -16,11 +16,11 @@ public class EnemyState : BaseState
     {
         EnemyTurn();
 
-        if (GameManager.hasLost)
+        if (GameManager.Instance.hasLost)
         {
             stateMachine.ChangeState(sm.loseState);
         }
-        else if (GameManager.hasWon)
+        else if (GameManager.Instance.hasWon)
         {
             stateMachine.ChangeState(sm.winState);
         }

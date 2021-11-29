@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+        timeValue = PlayerPrefs.GetInt("Time");
         DisplayTime(timeValue);
         StartCoroutine(Countdown(timeValue));
     }
@@ -39,6 +40,6 @@ public class Timer : MonoBehaviour
     {
         StopCoroutine("Countdown");
         timeValue = 0;
-        GameManager.hasLost = true;
+        GameManager.Instance.hasLost = true;
     }
 }
