@@ -4,14 +4,24 @@ using UnityEngine;
 public class WordDictionary : MonoBehaviour
 {
     public Dictionary<int, List<string>> words = new Dictionary<int, List<string>>();
-    [SerializeField] int minLength;
-    [SerializeField] int maxLength;
-    [SerializeField] int minLetters;
-    [SerializeField] int maxLetters;
+    [SerializeField] int minLetters = 3;
+    [SerializeField] int maxLetters = 11;
     [SerializeField] TextAsset txt;
     string[] dictionary;
+    public List<string> listOfWords = new List<string>();
+    
 
-    void Awake() => LoadWordsFromFile();
+    void Awake()
+    {
+        LoadPlayerPreferences();
+        LoadWordsFromFile();
+    }
+
+    void LoadPlayerPreferences()
+    {
+        minLetters = PlayerPrefs.GetInt("MinWordLength");
+        print(minLetters);
+    }
 
     void LoadWordsFromFile()
     {
@@ -21,17 +31,17 @@ public class WordDictionary : MonoBehaviour
 
     void AddWordsToList()
     {
-        for (int length = minLength; length < maxLength; length++) words[length] = new List<string>();
-
         foreach (string word in dictionary)
         {
-            int number = word.Length;
+            word.Substring(0, word.Length - 1);
 
-            if (number < maxLetters && number > minLetters)
+            if (word.Length >= minLetters && word.Length <= maxLetters)
             {
-                List<string> l = words[number];
-                l.Add(word);
+                print(word.Length);
+                listOfWords.Add(word);
             }
         }
+
+
     }
 }
