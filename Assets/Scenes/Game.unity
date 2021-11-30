@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 211788750}
   - component: {fileID: 211788752}
   - component: {fileID: 211788751}
+  - component: {fileID: 211788753}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -432,9 +433,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17eae55a264a19d4e92e6d6c35b3204f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
-  maxPoints: 10
-  pointsText: {fileID: 1502078601}
+  health: 0
+  maxHealth: 10
+  healthText: {fileID: 1502078601}
   fill: {fileID: 1724836544}
 --- !u!114 &211788752
 MonoBehaviour:
@@ -450,11 +451,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 179119121}
   generator: {fileID: 179119119}
-  score: {fileID: 211788751}
+  health: {fileID: 211788751}
+  playerScore: {fileID: 211788753}
   keyboardPanel: {fileID: 317425576}
   turnText: {fileID: 197730845}
   selected: {fileID: 0}
   hadTurn: 0
+--- !u!114 &211788753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211788749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8307934c622eee543818220fbc1e03e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iq: 0
 --- !u!1 &237702072
 GameObject:
   m_ObjectHideFlags: 0

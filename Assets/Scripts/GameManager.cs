@@ -11,15 +11,36 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-
+    [Header("Player States")]
     public bool hasWon;
+    public bool HasWon
+    {
+        get { return hasWon; }
+        set
+        {
+            if (hasWon == value) return;
+            hasWon = value;
+            if (hasWon)
+            {
+                SaveIQ();
+            }
+        }
+    }
     public bool hasLost;
-    public float timerValue;
+    [Header("Save System")]
+    public GameData gameData;
+    public Player player;
 
-    void Awake() => DontDestroyOnLoad(gameObject);
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        gameData = SaveSystem.Load();
+        player = FindObjectOfType<Player>();
+    }    
 
-
-
-
-
+    void SaveIQ()
+    {
+        gameData.iqTotal += player.playerScore.iq;
+        SaveSystem.Save(gameData);
+    }
 }

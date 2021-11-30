@@ -13,10 +13,10 @@ public class SetMatch : MonoBehaviour
 
     void Start()
     {
-        SetupTime();
+        SetupTimer();
     }
 
-    void SetupTime()
+    void SetupTimer()
     {
         timeSlider.value = timeValue;
         timeSlider.maxValue = maxTime;

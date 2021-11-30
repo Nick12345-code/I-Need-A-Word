@@ -1,38 +1,21 @@
 using UnityEngine;
-using UnityEngine.UI;   
 using TMPro;
 
 public class PlayerScore : MonoBehaviour
 {
-    [SerializeField] float points;
-    public float Points
-    {
-        get { return points; }
-        set
-        {
-            if (points == value) return;
-            points = value;
-            if (points <= 0)
-            {
-                GameManager.Instance.hasLost = true;
-            }
-        }
-    }
-    [SerializeField] float maxPoints;
-    [SerializeField] TextMeshProUGUI pointsText;
-    [SerializeField] Image fill;
+    [SerializeField] TextMeshProUGUI iqText;
+    public int iq;
+    public int iqStandard = 1;
+    public int iqMultiplier = 5;
 
     void Start()
     {
-        points = maxPoints;
-        pointsText.text = points.ToString("0");
-        fill.fillAmount = points / maxPoints;
+        iqText.text = iq.ToString();
     }
 
-    public void LosePoints(float amount)
+    public void IncreaseIQ(int amount)
     {
-        points -= amount;
-        pointsText.text = points.ToString("0");
-        fill.fillAmount = points / maxPoints;
+        iq += amount;
+        iqText.text = iq.ToString();
     }
 }
