@@ -10,11 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] WordGenerator generator;
     [SerializeField] PlayerScore score;
     [Space]
-    [SerializeField] KeyCode showKeyboardKey;
     [SerializeField] GameObject keyboardPanel;
+    [SerializeField] TextMeshProUGUI turnText;
     public GameObject selected;
     public bool hadTurn;
-    public bool playerWon;
 
     public void CheckIfPlayerChoseCorrectLetter()
     {
@@ -72,5 +71,10 @@ public class Player : MonoBehaviour
     {
         if (keyboardPanel.activeInHierarchy) keyboardPanel.SetActive(false);
         else keyboardPanel.SetActive(true);
+    }
+
+    public void UpdateTurnText(string whosTurn)
+    {
+        turnText.text = whosTurn;
     }
 }

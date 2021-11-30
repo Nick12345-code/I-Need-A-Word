@@ -10,12 +10,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] WordGenerator word;
     [Space]
     public bool hadTurn;
-    public bool playerLost;
     [Header("AI")]
     public float enemyThinkingTime;
     public char chosenLetter;
     [SerializeField, Range(0, 1)] float vowelChance = 0.20f;
     [SerializeField, Range(0, 1)] float commonsChance = 0.60f;
+    [Header("Letters")]
     public List<char> alphabet = new List<char>{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
     public List<char> vowels = new List<char> { 'A', 'E', 'I', 'O', 'U' };
     public List<char> commons = new List<char> { 'R', 'T', 'N', 'S', 'L', 'C' };
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         {
             if (letter != chosenLetter)
             {
-                RemoveLetter();
+                RemoveLetter();              
                 hadTurn = true;
                 return;
             }
