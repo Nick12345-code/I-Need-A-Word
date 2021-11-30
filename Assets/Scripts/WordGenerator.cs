@@ -11,8 +11,7 @@ public class WordGenerator : MonoBehaviour
     
     public void GetRandomWordFromDictionary()
     {
-        System.Random randomValue = new System.Random(dictionary.words.Count);
-        randomWord = dictionary.listOfWords[Random.Range(0, dictionary.listOfWords.Count)];
+        randomWord = dictionary.words[Random.Range(0, dictionary.words.Count)];
         randomWord = randomWord.Substring(0, randomWord.Length - 1);
     }
 }
