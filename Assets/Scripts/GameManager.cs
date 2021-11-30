@@ -13,19 +13,6 @@ public class GameManager : MonoBehaviour
     }
     [Header("Player States")]
     public bool hasWon;
-    public bool HasWon
-    {
-        get { return hasWon; }
-        set
-        {
-            if (hasWon == value) return;
-            hasWon = value;
-            if (hasWon)
-            {
-                SaveIQ();
-            }
-        }
-    }
     public bool hasLost;
     [Header("Save System")]
     public GameData gameData;
@@ -33,12 +20,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         gameData = SaveSystem.Load();
-        player = FindObjectOfType<Player>();
     }    
 
-    void SaveIQ()
+    public void SaveIQ()
     {
         gameData.iqTotal += player.playerScore.iq;
         SaveSystem.Save(gameData);

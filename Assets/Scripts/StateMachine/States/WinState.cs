@@ -11,5 +11,7 @@ public class WinState : BaseState
         sm.results.ShowResults(sm.results.winSentence);
 
         sm.wordUI.GameOverEffect();
+
+        sm.gameManager.SaveIQ();
     }
 }

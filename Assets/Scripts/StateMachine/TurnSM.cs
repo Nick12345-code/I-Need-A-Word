@@ -15,8 +15,7 @@ public class TurnSM : StateMachine
     public ButtonGenerator buttonGenerator;
     public Player player;
     public Results results;
-    public TurnIndicator turnIndicator;
-
+    public GameManager gameManager;
 
     void Awake()
     {
@@ -25,6 +24,8 @@ public class TurnSM : StateMachine
         enemyState = new EnemyState(this);
         winState = new WinState(this);
         loseState = new LoseState(this);
+
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     protected override BaseState GetInitialState() => setupState;

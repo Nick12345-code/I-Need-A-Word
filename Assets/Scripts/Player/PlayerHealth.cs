@@ -4,7 +4,7 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float health;
+    [SerializeField] float health = 10.0f;
     public float Health
     {
         get { return health; }

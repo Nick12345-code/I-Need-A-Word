@@ -10,12 +10,13 @@ public class PlayerScore : MonoBehaviour
 
     void Start()
     {
+        iq = 0;
         iqText.text = iq.ToString();
     }
 
     public void IncreaseIQ(int amount)
     {
         iq += amount;
-        iqText.text = iq.ToString();
+        iqText.text = iq.ToString() + " IQ";
     }
 }
