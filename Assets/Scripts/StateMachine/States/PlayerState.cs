@@ -9,6 +9,7 @@ public class PlayerState : BaseState
     public override void Enter()
     {
         sm.buttonGenerator.keyboardButton.enabled = true;
+        sm.player.UpdateTurnText("YOUR TURN");
     }
 
     public override void UpdateLogic()
