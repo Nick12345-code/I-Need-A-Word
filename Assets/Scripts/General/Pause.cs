@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour
     void Update()
     {
         if (Input.touchCount == numTouchesToPause && !isPaused) PauseGame();
+        else if (Input.touchCount == numTouchesToPause && isPaused) ResumeGame();
     }
 
     void PauseGame()
@@ -20,7 +21,7 @@ public class Pause : MonoBehaviour
         menu.SetActive(true);
     }
 
-    public void ResumeGame()
+    void ResumeGame()
     {
         isPaused = false;
         Time.timeScale = 1.0f;
