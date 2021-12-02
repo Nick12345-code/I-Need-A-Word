@@ -1,0 +1,11 @@
+lastUpgrade=01013
+proj.pluginVersion=0.10.13
+proj.AppId=1026225384457
+and.BundleId=com.KiranMusic.INeedAWord
+proj.classDir=Assets
+proj.ConstantsClassName=SmokeTest.GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e1026225384457%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.KiranMusic.INeedAWord%3c%2fstring%3e%0d%0a++%3c%21--achievement+AchievementToReveal--%3e%0d%0a++%3cstring+name%3d%22achievement_achievementtoreveal%22+translatable%3d%22false%22%3eCgkIidiy_u4dEAIQAQ%3c%2fstring%3e%0d%0a++%3c%21--achievement+AchievementToUnlock--%3e%0d%0a++%3cstring+name%3d%22achievement_achievementtounlock%22+translatable%3d%22false%22%3eCgkIidiy_u4dEAIQAg%3c%2fstring%3e%0d%0a++%3c%21--achievement+AchievementToIncrement--%3e%0d%0a++%3cstring+name%3d%22achievement_achievementtoincrement%22+translatable%3d%22false%22%3eCgkIidiy_u4dEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--achievement+AchievementHiddenIncremental--%3e%0d%0a++%3cstring+name%3d%22achievement_achievementhiddenincremental%22+translatable%3d%22false%22%3eCgkIidiy_u4dEAIQBA%3c%2fstring%3e%0d%0a++%3c%21--event+SmokingEvent--%3e%0d%0a++%3cstring+name%3d%22event_smokingevent%22+translatable%3d%22false%22%3eCgkIidiy_u4dEAIQBg%3c%2fstring%3e%0d%0a++%3c%21--leaderboard+Leaders--%3e%0d%0a++%3cstring+name%3d%22leaderboard_leaders%22+translatable%3d%22false%22%3eCgkIidiy_u4dEAIQBQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=1026225384457-2b5q6rdhv2ets86g2p5fglas567k3jlo.apps.googleusercontent.com
+android.SetupDone=true
+App.NearbdServiceId=com.KiranMusic.INeedAWord
+android.NearbySetupDone=true
