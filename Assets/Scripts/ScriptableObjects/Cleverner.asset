@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cleverner
   description: You gain +1 more IQ per correct letter
-  baseCost: 5
+  baseCost: 100

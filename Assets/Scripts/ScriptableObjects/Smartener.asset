@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Smartener
   m_EditorClassIdentifier: 
   title: Smartener
-  description: You gain +2 more IQ per correct letter
-  baseCost: 10
+  description: You now gain 2 IQ per correct letter
+  baseCost: 500
