@@ -5,13 +5,14 @@ public class PlayerScore : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI iqText;
     public int iq;
-    public int iqStandard = 1;
-    public int iqMultiplier = 5;
+    public int iqIncreaseAmount = 1;
 
-    void Start()
+    void Start() => SetupIQ();
+
+    void SetupIQ()
     {
         iq = 0;
-        iqText.text = iq.ToString();
+        iqText.text = iq.ToString() + " IQ";
     }
 
     public void IncreaseIQ(int amount)
@@ -19,4 +20,12 @@ public class PlayerScore : MonoBehaviour
         iq += amount;
         iqText.text = iq.ToString() + " IQ";
     }
+
+    public void DecreaseIQ(int amount)
+    {
+        if (iq <= 0) return;
+        iq -= amount;
+        iqText.text = iq.ToString() + " IQ";
+    }
+
 }

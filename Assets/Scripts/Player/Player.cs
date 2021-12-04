@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] WordUI ui;
     [SerializeField] WordGenerator generator;
-    [SerializeField] PlayerHealth health;
     public PlayerScore playerScore;
     [Space]
     [SerializeField] GameObject keyboardPanel;
@@ -31,7 +30,7 @@ public class Player : MonoBehaviour
                     if (letterText.GetComponentInChildren<TextMeshProUGUI>().text == selected.GetComponentInChildren<TextMeshProUGUI>().text)
                     {
                         letterText.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
-                        playerScore.IncreaseIQ(playerScore.iqStandard);
+                        playerScore.IncreaseIQ(playerScore.iqIncreaseAmount);
                     }
                 }
                 CheckIfPlayerHasWon();
@@ -46,7 +45,7 @@ public class Player : MonoBehaviour
             if (letter.ToString() != selected.GetComponentInChildren<TextMeshProUGUI>().text)
             {
                 Result(Color.red);
-                health.LoseHealth(1);
+                playerScore.DecreaseIQ(playerScore.iqIncreaseAmount);
                 keyboardPanel.SetActive(false);
                 hadTurn = true;
                 return;
