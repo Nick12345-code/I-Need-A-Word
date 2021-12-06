@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLetters: 5
   maxLetters: 11
-  txt: {fileID: 4900000, guid: 9087f217574509a4db33336fa4ebc78a, type: 3}
+  txt: {fileID: 4900000, guid: f920b895f3556b34e8490c6e255a7a59, type: 3}
   words: []
 --- !u!1 &192672384
 GameObject:
@@ -865,7 +865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 654.5132, y: -797.0815}
+  m_AnchoredPosition: {x: 703.3333, y: -715}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &317519221
@@ -998,7 +998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1272.5659, y: -797.0815}
+  m_AnchoredPosition: {x: 1516.6665, y: -715}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318412896
@@ -1013,7 +1013,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce770afc39d0fab4c8428f3eeacbcc8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPlacementId: rewardedVideo
+  iqReward: 20
+  mySurfacingId: Rewarded_Android
 --- !u!114 &318412897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,7 +2082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 963.53955, y: -797.0815}
+  m_AnchoredPosition: {x: 1110, y: -715}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868398069

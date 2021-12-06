@@ -33,7 +33,7 @@ public class WordDictionary : MonoBehaviour
     {
         foreach (string word in dictionary)
         {
-            word.Substring(0, word.Length - 1);
+            word.Substring(0, word.Length);
 
             if (word.Length >= minLetters && word.Length <= maxLetters)
             {

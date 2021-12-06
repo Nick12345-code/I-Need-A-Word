@@ -13,5 +13,6 @@ public class WordGenerator : MonoBehaviour
     {
         randomWord = dictionary.words[Random.Range(0, dictionary.words.Count)];
         randomWord = randomWord.Substring(0, randomWord.Length - 1);
+        randomWord = randomWord.ToUpper();
     }
 }

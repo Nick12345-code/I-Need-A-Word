@@ -5,7 +5,8 @@ using UnityEngine.Advertisements;
 [RequireComponent(typeof(Button))]
 public class RewardedAds : MonoBehaviour, IUnityAdsListener
 {
-
+    GameData gameData;
+    [SerializeField] int iqReward = 20;
     #if UNITY_IOS
     private string gameId = "4487727";
     #elif UNITY_ANDROID
@@ -13,14 +14,16 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
     #endif
 
     Button myButton;
-    public string myPlacementId = "rewardedVideo";
+    public string mySurfacingId = "Rewarded_Android";
+
+    private void Awake() => gameData = SaveSystem.Load();
 
     void Start()
     {
         myButton = GetComponent<Button>();
 
         // Set interactivity to be dependent on the Placement’s status:
-        myButton.interactable = Advertisement.IsReady(myPlacementId);
+        myButton.interactable = Advertisement.IsReady(mySurfacingId);
 
         // Map the ShowRewardedVideo function to the button’s click listener:
         if (myButton) myButton.onClick.AddListener(ShowRewardedVideo);
@@ -33,14 +36,14 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
     // Implement a function for showing a rewarded video ad:
     void ShowRewardedVideo()
     {
-        Advertisement.Show(myPlacementId);
+        Advertisement.Show(mySurfacingId);
     }
 
     // Implement IUnityAdsListener interface methods:
     public void OnUnityAdsReady(string placementId)
     {
         // If the ready Placement is rewarded, activate the button: 
-        if (placementId == myPlacementId)
+        if (placementId == mySurfacingId)
         {
             myButton.interactable = true;
         }
@@ -51,7 +54,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
         // Define conditional logic for each ad completion status:
         if (showResult == ShowResult.Finished)
         {
-            // Reward the user for watching the ad to completion.
+            gameData.iqTotal += iqReward;
         }
         else if (showResult == ShowResult.Skipped)
         {
