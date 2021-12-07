@@ -18,10 +18,7 @@ public class GameManager : MonoBehaviour
     public GameData gameData;
     public Player player;
 
-    void Awake()
-    {
-        gameData = SaveSystem.Load();
-    }    
+    void Awake() => gameData = SaveSystem.Load();
 
     public void SaveIQ()
     {

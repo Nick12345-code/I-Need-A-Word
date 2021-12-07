@@ -10,7 +10,7 @@ public class EnemyState : BaseState
     {
         isDone = false;
         sm.buttonGenerator.keyboardButton.enabled = false;
-        sm.player.UpdateTurnText("COMPUTER IS THINKING");
+        sm.UpdateTurnText("COMPUTER IS THINKING");
     }
 
     public override void UpdateLogic()

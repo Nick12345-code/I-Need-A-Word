@@ -12,6 +12,6 @@ public class LoseState : BaseState
 
         sm.wordUI.GameOverEffect();
 
-        sm.gameManager.SaveIQ();
+        GameManager.Instance.SaveIQ();
     }
 }
