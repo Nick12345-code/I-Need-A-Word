@@ -23,7 +23,6 @@ public class WordUI : MonoBehaviour
             a.GetComponentInChildren<TextMeshProUGUI>().text = letter.ToString();
             list.Add(a);
             a.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
-            a.GetComponent<Rigidbody2D>().isKinematic = true;
             a.SetActive(true);
         }
     }

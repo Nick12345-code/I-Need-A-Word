@@ -33,6 +33,7 @@ public class ShopManager : MonoBehaviour
             shopPanels[i].titleText.text = shopItems[i].title;
             shopPanels[i].descriptionText.text = shopItems[i].description;
             shopPanels[i].costText.text = shopItems[i].baseCost.ToString() + " IQ";
+            shopPanels[i].iconImage.sprite = shopItems[i].iconSprite;
         }
     }
 
@@ -52,9 +53,19 @@ public class ShopManager : MonoBehaviour
             gameData.iqTotal -= shopItems[buttonNumber].baseCost;
             RefreshIQ();
             CheckPurchasable();
+
+            switch (buttonNumber)
+            {
+                case 0:
+                    gameData.timeTotal += 10;   // timer increased by 10 seconds
+                    break;
+                default:
+                    break;
+            }
+
+            SaveSystem.Save(gameData);
         }
     }
 
     void RefreshIQ() => iqText.text = gameData.iqTotal.ToString() + " IQ";
-
 }

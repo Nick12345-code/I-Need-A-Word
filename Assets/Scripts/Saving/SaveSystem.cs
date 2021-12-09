@@ -29,5 +29,13 @@ public static class SaveSystem
         return data;
     }
 
+    public static void Delete()
+    {
+        string path = Application.persistentDataPath;
+        DirectoryInfo directory = new DirectoryInfo(path);
+        directory.Delete(true);
+        Directory.CreateDirectory(path);
+    }
+
     static string GetPath() => Application.persistentDataPath + "/data.player";
 }

@@ -5,12 +5,12 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timeText;
-    [SerializeField] int timeValue = 120;
+    int timeValue;
     WaitForSeconds oneSecond = new WaitForSeconds(1);
 
     void Start()
     {
-        timeValue = PlayerPrefs.GetInt("Time");
+        timeValue = GameManager.Instance.gameData.timeTotal;
         DisplayTime(timeValue);
         StartCoroutine(Countdown(timeValue));
     }
