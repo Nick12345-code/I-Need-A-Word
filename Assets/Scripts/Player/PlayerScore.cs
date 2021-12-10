@@ -1,11 +1,12 @@
 using UnityEngine;
+using SmokeTest;
 using TMPro;
 
 public class PlayerScore : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI iqText;
     public int iq;
-    public int iqIncreaseAmount = 1;
+    public int iqIncreaseAmount = 1;  
 
     void Start() => SetupIQ();
 
@@ -27,5 +28,4 @@ public class PlayerScore : MonoBehaviour
         iq -= amount;
         iqText.text = iq.ToString() + " IQ";
     }
-
 }

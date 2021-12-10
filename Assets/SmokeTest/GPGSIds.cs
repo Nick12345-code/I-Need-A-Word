@@ -25,12 +25,8 @@ namespace SmokeTest
 {
 public static class GPGSIds
 {
-        public const string achievement_achievementtounlock = "CgkIidiy_u4dEAIQAg"; // <GPGSID>
-        public const string achievement_achievementhiddenincremental = "CgkIidiy_u4dEAIQBA"; // <GPGSID>
-        public const string achievement_achievementtoincrement = "CgkIidiy_u4dEAIQAw"; // <GPGSID>
-        public const string event_smokingevent = "CgkIidiy_u4dEAIQBg"; // <GPGSID>
-        public const string leaderboard_leaders = "CgkIidiy_u4dEAIQBQ"; // <GPGSID>
-        public const string achievement_achievementtoreveal = "CgkIidiy_u4dEAIQAQ"; // <GPGSID>
+        public const string leaderboard_iq = "CgkIidiy_u4dEAIQBQ"; // <GPGSID>
+        public const string achievement_big_brain = "CgkIidiy_u4dEAIQAg"; // <GPGSID>
 
 }
 }
