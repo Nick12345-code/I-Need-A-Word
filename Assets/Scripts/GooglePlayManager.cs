@@ -44,4 +44,9 @@ public class GooglePlayManager : MonoBehaviour
             }
         });
     }
+
+    public void ShowLeaderBoard()
+    {
+        Social.ShowLeaderboardUI (); // Show all leaderboard
+    }
 }
