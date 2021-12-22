@@ -27,7 +27,7 @@ public class GooglePlayManager : MonoBehaviour
         PlayGamesPlatform.Activate();
     }
 
-    private void Start() => SignInToGooglePlayServices();
+    void Start() => SignInToGooglePlayServices();
 
     void SignInToGooglePlayServices()
     {
@@ -43,10 +43,5 @@ public class GooglePlayManager : MonoBehaviour
                     break;
             }
         });
-    }
-
-    public void ShowLeaderBoard()
-    {
-        Social.ShowLeaderboardUI (); // Show all leaderboard
     }
 }

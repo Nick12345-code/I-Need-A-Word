@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Button))]
 public class RewardedAds : MonoBehaviour, IUnityAdsListener
@@ -55,6 +56,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
         if (showResult == ShowResult.Finished)
         {
             gameData.iqTotal += iqReward;
+            SceneManager.LoadScene("Menu");
         }
         else if (showResult == ShowResult.Skipped)
         {
