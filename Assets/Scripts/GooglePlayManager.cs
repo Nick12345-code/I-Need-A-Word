@@ -44,4 +44,11 @@ public class GooglePlayManager : MonoBehaviour
             }
         });
     }
+
+    public static void ShowLeaderboard()
+    {
+        // show specific leaderboard UI
+        PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIidiy_u4dEAIQBw");
+    }
+  
 }
