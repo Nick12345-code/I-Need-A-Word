@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(Button))]
 public class RewardedAds : MonoBehaviour, IUnityAdsListener
 {
     GameData gameData;
@@ -14,20 +13,18 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
     private string gameId = "4487726";
     #endif
 
-    Button myButton;
+    [SerializeField] Button adButton;
     public string mySurfacingId = "Rewarded_Android";
 
     private void Awake() => gameData = SaveSystem.Load();
 
     void Start()
     {
-        myButton = GetComponent<Button>();
-
         // Set interactivity to be dependent on the Placement’s status:
-        myButton.interactable = Advertisement.IsReady(mySurfacingId);
+        adButton.interactable = Advertisement.IsReady(mySurfacingId);
 
         // Map the ShowRewardedVideo function to the button’s click listener:
-        if (myButton) myButton.onClick.AddListener(ShowRewardedVideo);
+        if (adButton) adButton.onClick.AddListener(ShowRewardedVideo);
 
         // Initialize the Ads listener and service:
         Advertisement.AddListener(this);
@@ -46,7 +43,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
         // If the ready Placement is rewarded, activate the button: 
         if (placementId == mySurfacingId)
         {
-            myButton.interactable = true;
+            adButton.interactable = true;
         }
     }
 
@@ -56,6 +53,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
         if (showResult == ShowResult.Finished)
         {
             gameData.iqTotal += iqReward;
+            SaveSystem.Save(gameData);
             SceneManager.LoadScene("Menu");
         }
         else if (showResult == ShowResult.Skipped)

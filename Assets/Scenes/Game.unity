@@ -965,7 +965,6 @@ GameObject:
   - component: {fileID: 318412899}
   - component: {fileID: 318412898}
   - component: {fileID: 318412897}
-  - component: {fileID: 318412896}
   m_Layer: 5
   m_Name: Button - Watch Ad
   m_TagString: Untagged
@@ -993,20 +992,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1387.1316, y: -677.1898}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &318412896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318412894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce770afc39d0fab4c8428f3eeacbcc8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iqReward: 20
-  mySurfacingId: Rewarded_Android
 --- !u!114 &318412897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,7 +1475,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 75, y: 120}
+  m_Spacing: {x: 75, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &539610004
@@ -2227,7 +2212,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 75, y: 120}
+  m_Spacing: {x: 75, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &1028067329
@@ -2286,6 +2271,52 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!1 &1105797834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105797835}
+  - component: {fileID: 1105797836}
+  m_Layer: 0
+  m_Name: Ads
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1105797835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105797834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1805098479}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105797836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105797834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce770afc39d0fab4c8428f3eeacbcc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iqReward: 20
+  adButton: {fileID: 318412897}
+  mySurfacingId: Rewarded_Android
 --- !u!1 &1194420463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,7 +2742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160, y: -160}
+  m_AnchoredPosition: {x: -160, y: -123}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570431950
@@ -3211,7 +3242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1805098479}
   m_Layer: 0
-  m_Name: GameObject - Managers
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3241,6 +3272,7 @@ Transform:
   - {fileID: 35972102}
   - {fileID: 1465893588}
   - {fileID: 827871156}
+  - {fileID: 1105797835}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
