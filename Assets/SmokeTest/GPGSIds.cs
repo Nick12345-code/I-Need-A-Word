@@ -25,7 +25,7 @@ namespace SmokeTest
 {
 public static class GPGSIds
 {
-        public const string leaderboard_iq = "CgkIidiy_u4dEAIQBw"; // <GPGSID>
+        public const string leaderboard_iq = "CgkIidiy_u4dEAIQCA"; // <GPGSID>
         public const string achievement_big_brain = "CgkIidiy_u4dEAIQAg"; // <GPGSID>
 
 }
