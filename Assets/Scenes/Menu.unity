@@ -586,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0132e7de908057e4a837e34c3f4d94ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37797bd1c96ad71429041384519a9972, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3594,6 +3594,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iqText: {fileID: 261477606}
   correctWordsText: {fileID: 124365602}
+  gameData:
+    iqTotal: 0
+    correctWords: 0
 --- !u!1 &2036126081
 GameObject:
   m_ObjectHideFlags: 0
