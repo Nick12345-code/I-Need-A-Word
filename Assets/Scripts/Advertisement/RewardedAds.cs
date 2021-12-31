@@ -54,7 +54,6 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
         {
             gameData.iqTotal += iqReward;
             SaveSystem.Save(gameData);
-            SceneManager.LoadScene("Menu");
         }
         else if (showResult == ShowResult.Skipped)
         {

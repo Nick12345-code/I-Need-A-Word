@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
         OnGainIQ += ReportAchievementProgress;
     }
 
+    public void UpdateCorrectWordsCount()
+    {
+        gameData.correctWords += 1;
+        SaveSystem.Save(gameData);
+    }
+
     public void SaveIQ()
     {
         gameData.iqTotal += player.playerScore.iq;

@@ -9,6 +9,7 @@ public class WinState : BaseState
     public override void Enter()
     {
         sm.results.ShowResults(sm.results.winSentence, sm.wordGenerator.randomWord);
+        GameManager.Instance.UpdateCorrectWordsCount();
         GameManager.Instance.SaveIQ();
     }
 }
