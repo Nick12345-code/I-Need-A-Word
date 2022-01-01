@@ -3,18 +3,19 @@ using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI iqText;
-    [SerializeField] TextMeshProUGUI correctWordsText;
-    public GameData gameData;
+    [SerializeField] TextMeshProUGUI totalCorrectLettersText;
+    [SerializeField] TextMeshProUGUI totalCorrectWordsText;
+    GameData gameData;
 
-    void Start()
+    void Awake() => gameData = SaveSystem.Load();
+
+    void Start() => RefreshUI();
+
+    public void RefreshUI()
     {
-        gameData = SaveSystem.Load();
-        UpdateIQ();
-        UpdateCorrectWords();
+        totalCorrectLettersText.text = gameData.totalCorrectLetters.ToString();
+        totalCorrectWordsText.text = gameData.totalCorrectWords.ToString();
     }
 
-    public void UpdateIQ() => iqText.text = gameData.iqTotal.ToString() + " IQ";
 
-    public void UpdateCorrectWords() => correctWordsText.text = gameData.correctWords.ToString() + " Correct Words";
 }

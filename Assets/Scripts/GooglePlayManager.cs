@@ -45,10 +45,6 @@ public class GooglePlayManager : MonoBehaviour
         });
     }
 
-    public static void ShowLeaderboard()
-    {
-        // show specific leaderboard UI
-        PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIidiy_u4dEAIQCA");
-    }
-  
+    public static void ShowCorrectLettersLeaderboard() => PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIidiy_u4dEAIQCA");
+    public static void ShowCorrectWordsLeaderboard() => PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIidiy_u4dEAIQCQ");
 }

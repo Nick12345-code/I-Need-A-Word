@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject keyboardPanel;
     GameObject selected;
     public bool hadTurn;
+    [SerializeField] Color correctColor, incorrectColor;
 
     public void CheckIfPlayerChoseCorrectLetter()
     {
@@ -22,14 +23,14 @@ public class Player : MonoBehaviour
         {
             if (letter.ToString() == selected.GetComponentInChildren<TextMeshProUGUI>().text)
             {
-                Result(Color.green);
+                Result(correctColor);
 
                 foreach (GameObject letterText in ui.playerLetters)
                 {
                     if (letterText.GetComponentInChildren<TextMeshProUGUI>().text == selected.GetComponentInChildren<TextMeshProUGUI>().text)
                     {
                         letterText.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
-                        playerScore.IncreaseIQ(playerScore.iqIncreaseAmount);
+                        playerScore.IncreaseCorrectLetters();
                     }
                 }
                 CheckIfPlayerHasWon();
@@ -43,8 +44,7 @@ public class Player : MonoBehaviour
         {
             if (letter.ToString() != selected.GetComponentInChildren<TextMeshProUGUI>().text)
             {
-                Result(Color.red);
-                playerScore.DecreaseIQ(playerScore.iqIncreaseAmount);
+                Result(incorrectColor);
                 keyboardPanel.SetActive(false);
                 hadTurn = true;
                 return;

@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public List<char> alphabet = new List<char>{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
     public List<char> vowels = new List<char> { 'A', 'E', 'I', 'O', 'U' };
     public List<char> commons = new List<char> { 'R', 'T', 'N', 'S', 'L', 'C' };
+    [SerializeField] Color correctColor;
 
     public void CheckRandomLetter()
     {
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (chosenLetter.ToString() == letterText.GetComponentInChildren<TextMeshProUGUI>().text)
                     {
-                        letterText.GetComponent<Image>().color = Color.yellow;
+                        letterText.GetComponent<Image>().color = correctColor;
                     }
                 }
                 RemoveLetter();

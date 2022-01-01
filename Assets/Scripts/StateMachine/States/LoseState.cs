@@ -9,6 +9,6 @@ public class LoseState : BaseState
     public override void Enter()
     {
         sm.results.ShowResults(sm.results.loseSentence, sm.wordGenerator.randomWord);
-        GameManager.Instance.SaveIQ();
+        GameManager.Instance.IncreaseCorrectLetters();
     }
 }

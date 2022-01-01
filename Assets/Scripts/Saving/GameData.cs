@@ -1,12 +1,12 @@
 [System.Serializable]
 public class GameData 
 {
-    public int iqTotal;
-    public int correctWords;
+    public int totalCorrectLetters;
+    public int totalCorrectWords;
 
     public GameData()
     {
-        iqTotal = 0;
-        correctWords = 0;
+        totalCorrectLetters = 0;
+        totalCorrectWords = 0;
     }
 }

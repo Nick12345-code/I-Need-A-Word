@@ -1,5 +1,4 @@
 using UnityEngine;
-using SmokeTest;
 using System;
 
 public class GameManager : MonoBehaviour
@@ -19,33 +18,39 @@ public class GameManager : MonoBehaviour
     [Header("Save System")]
     public GameData gameData;
     public Player player;
-    public Action<int> OnGainIQ;
+    public Action<int> OnCorrectLetter;
+    public Action<int> OnCorrectWord;
 
     void Awake()
     {
         gameData = SaveSystem.Load();
-        OnGainIQ += ReportAchievementProgress;
+        OnCorrectLetter += ReportTotalCorrectLetters;
+        OnCorrectWord += ReportTotalCorrectWords;
     }
 
-    public void UpdateCorrectWordsCount()
+    public void IncreaseCorrectLetters()
     {
-        gameData.correctWords += 1;
+        gameData.totalCorrectLetters += player.playerScore.correctLetters;
+        OnCorrectLetter(gameData.totalCorrectLetters);
         SaveSystem.Save(gameData);
+        ReportCorrectLettersHighscore();
     }
 
-    public void SaveIQ()
+    public void IncreaseCorrectWords()
     {
-        gameData.iqTotal += player.playerScore.iq;
-        OnGainIQ(gameData.iqTotal);
+        gameData.totalCorrectWords += 1;
+        OnCorrectWord(gameData.totalCorrectWords);
         SaveSystem.Save(gameData);
-        ReportHighscore();
+        ReportCorrectWordsHighscore();
     }
 
-    void ReportHighscore()
+    #region Reporting Leaderboard Progress
+
+    void ReportCorrectLettersHighscore()
     {
         if (GooglePlayManager.Instance.isConnectedToGooglePlayServices)
         {
-            Social.ReportScore(gameData.iqTotal, GPGSIds.leaderboard_iq, (success) => 
+            Social.ReportScore(gameData.totalCorrectLetters, GPGSIds.leaderboard_correct_letters, (success) => 
             {
                 if (!success) Debug.LogError("Unable to post highscore!");
             });
@@ -53,27 +58,69 @@ public class GameManager : MonoBehaviour
         else Debug.LogError("Not Signed In! Unable to post highscore!");
     }
 
-    void ReportAchievementProgress(int iqAmount)
+    void ReportCorrectWordsHighscore()
     {
-        switch (iqAmount)
+        if (GooglePlayManager.Instance.isConnectedToGooglePlayServices)
         {
-            case 10:
-                Social.ReportProgress(GPGSIds.achievement_big_brain, 20.0f, null);
+            Social.ReportScore(gameData.totalCorrectWords, GPGSIds.leaderboard_correct_words, (success) =>
+            {
+                if (!success) Debug.LogError("Unable to post highscore!");
+            });
+        }
+        else Debug.LogError("Not Signed In! Unable to post highscore!");
+    }
+
+    #endregion
+
+    #region Reporting Achievement Progress
+
+    void ReportTotalCorrectLetters(int totalCorrectLetters)
+    {
+        switch (totalCorrectLetters)
+        {
+            case 200:
+                Social.ReportProgress(GPGSIds.achievement_etymologist, 20.0f, null);
                 break;
-            case 20:
-                Social.ReportProgress(GPGSIds.achievement_big_brain, 20.0f, null);
+            case 400:
+                Social.ReportProgress(GPGSIds.achievement_etymologist, 20.0f, null);
                 break;
-            case 30:
-                Social.ReportProgress(GPGSIds.achievement_big_brain, 20.0f, null);
+            case 600:
+                Social.ReportProgress(GPGSIds.achievement_etymologist, 20.0f, null);
                 break;
-            case 40:
-                Social.ReportProgress(GPGSIds.achievement_big_brain, 20.0f, null);
+            case 800:
+                Social.ReportProgress(GPGSIds.achievement_etymologist, 20.0f, null);
                 break;
-            case 50:
-                Social.ReportProgress(GPGSIds.achievement_big_brain, 20.0f, null);
+            case 1000:
+                Social.ReportProgress(GPGSIds.achievement_etymologist, 20.0f, null);
                 break;
             default:
                 break;
         }
     }
+
+    void ReportTotalCorrectWords(int totalCorrectWords)
+    {
+        switch (totalCorrectWords)
+        {
+            case 200:
+                Social.ReportProgress(GPGSIds.achievement_wordsmith, 20.0f, null);
+                break;
+            case 400:
+                Social.ReportProgress(GPGSIds.achievement_wordsmith, 20.0f, null);
+                break;
+            case 600:
+                Social.ReportProgress(GPGSIds.achievement_wordsmith, 20.0f, null);
+                break;
+            case 800:
+                Social.ReportProgress(GPGSIds.achievement_wordsmith, 20.0f, null);
+                break;
+            case 1000:
+                Social.ReportProgress(GPGSIds.achievement_wordsmith, 20.0f, null);
+                break;
+            default:
+                break;
+        }
+    }
+
+    #endregion
 }
