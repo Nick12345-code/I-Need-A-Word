@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class WinState : BaseState
 {
@@ -8,7 +9,7 @@ public class WinState : BaseState
 
     public override void Enter()
     {
-        sm.results.ShowResults(sm.results.winSentence, sm.wordGenerator.randomWord);
+        sm.results.StartWinSequence();
         GameManager.Instance.IncreaseCorrectWords();
         GameManager.Instance.IncreaseCorrectLetters();
     }

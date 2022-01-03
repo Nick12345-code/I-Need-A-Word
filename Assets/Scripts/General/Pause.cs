@@ -10,8 +10,16 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount == numTouchesToPause && !isPaused) PauseGame();
-        else if (Input.touchCount == numTouchesToPause && isPaused) ResumeGame();
+        if (Input.touchCount > 1)
+        {
+            Touch t = Input.GetTouch(0);
+
+            if (t.phase == TouchPhase.Began)
+            {
+                if (!isPaused) PauseGame();
+                else if (isPaused)ResumeGame();
+            }
+        }
     }
 
     void PauseGame()
