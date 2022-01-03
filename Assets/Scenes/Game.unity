@@ -1970,6 +1970,7 @@ MonoBehaviour:
   winSentence: You Won!
   loseSentence: You Lost!
   winColor: {r: 0.24705882, g: 0.8627451, b: 0.6156863, a: 1}
+  colorChangeTime: 2.5
 --- !u!1 &1378981945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,7 +3125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 50738941068331836, guid: 1a6bb467b90259944ba93aba4299e9b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50738941068331839, guid: 1a6bb467b90259944ba93aba4299e9b9, type: 3}
       propertyPath: m_Pivot.x
