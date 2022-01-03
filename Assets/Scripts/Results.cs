@@ -1,15 +1,24 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.UI;
 using TMPro;
 
 public class Results : MonoBehaviour
 {
     [SerializeField] WordGenerator wordGenerator;
+    [SerializeField] WordUI wordUI;
     [SerializeField] GameObject resultsPanel;
     [SerializeField] TextMeshProUGUI resultsText;
     [SerializeField] TextMeshProUGUI wordText;
     public string winSentence, loseSentence;
-    WaitForSeconds resultsDelay = new WaitForSeconds(3);
+    WaitForSeconds delay = new WaitForSeconds(3);
+    EventSystem eventSystem;
+    [Header("Game Over Effect")]
+    [SerializeField] Color winColor;
+    [SerializeField] float colorChangeTime = 2.5f;
+
+    void Awake() => eventSystem = FindObjectOfType<EventSystem>();
 
     public void ShowResults(string result, string word)
     {
@@ -23,17 +32,35 @@ public class Results : MonoBehaviour
 
     IEnumerator WinSequence()
     {
-        // confetti
-        yield return resultsDelay;
+        eventSystem.enabled = false;
+
+        foreach (GameObject letter in wordUI.playerLetters)
+        {
+            letter.GetComponent<Image>().CrossFadeColor(winColor, colorChangeTime, true, false);
+        }
+
+        yield return delay;
+
         ShowResults(winSentence, wordGenerator.randomWord);
+        eventSystem.enabled = true;
+
         yield break;
     }
 
     IEnumerator LoseSequence()
     {
-        // particle effect
-        yield return resultsDelay;
+        eventSystem.enabled = false;
+
+        foreach (GameObject letter in wordUI.enemyLetters)
+        {
+            letter.GetComponent<Image>().CrossFadeColor(winColor, colorChangeTime, true, false);
+        }
+
+        yield return delay;
+
         ShowResults(loseSentence, wordGenerator.randomWord);
+        eventSystem.enabled = true;
+
         yield break;
     }
 
