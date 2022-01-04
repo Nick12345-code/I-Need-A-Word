@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (chosenLetter.ToString() == letterText.GetComponentInChildren<TextMeshProUGUI>().text)
                     {
-                        letterText.GetComponent<Image>().color = correctColor;
+                        letterText.GetComponentInChildren<Image>().color = correctColor;
                     }
                 }
                 RemoveLetter();
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
     {
         foreach (GameObject letter in ui.enemyLetters)
         {
-            if (letter.GetComponent<Image>().color != Color.yellow) return;
+            if (letter.GetComponentInChildren<Image>().color != Color.yellow) return;
         }
         GameManager.Instance.hasLost = true;
     }
