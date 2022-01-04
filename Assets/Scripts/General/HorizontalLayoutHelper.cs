@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class HorizontalLayoutHelper : MonoBehaviour
 {
-    HorizontalLayoutGroup horizontalLayoutGroup;
     WordGenerator wordGenerator;
+    RectTransform rectTransform;
 
     void Awake()
     {
-        horizontalLayoutGroup = GetComponent<HorizontalLayoutGroup>();
+        rectTransform = GetComponent<RectTransform>();
         wordGenerator = FindObjectOfType<WordGenerator>();
     }
 
@@ -17,16 +17,28 @@ public class HorizontalLayoutHelper : MonoBehaviour
         switch (wordGenerator.randomWord.Length)
         {
             case 5:
-                //horizontalLayoutGroup.spacing = -600.0f;
+                rectTransform.offsetMin = new Vector2(400.0f, rectTransform.offsetMin.y);
+                rectTransform.offsetMax = new Vector2(-400.0f, rectTransform.offsetMax.y);
                 break;
             case 6:
-                //horizontalLayoutGroup.spacing = -400.0f;
+                rectTransform.offsetMin = new Vector2(300.0f, rectTransform.offsetMin.y);
+                rectTransform.offsetMax = new Vector2(-300.0f, rectTransform.offsetMax.y);
                 break;
             case 7:
-                //horizontalLayoutGroup.spacing = -100.0f;
+                rectTransform.offsetMin = new Vector2(200.0f, rectTransform.offsetMin.y);
+                rectTransform.offsetMax = new Vector2(-200.0f, rectTransform.offsetMax.y);
                 break;
             case 8:
-                //horizontalLayoutGroup.spacing = 25.0f;
+                rectTransform.offsetMin = new Vector2(100.0f, rectTransform.offsetMin.y);
+                rectTransform.offsetMax = new Vector2(-100.0f, rectTransform.offsetMax.y);
+                break;
+            case 9:
+                rectTransform.offsetMin = new Vector2(0.0f, rectTransform.offsetMin.y);
+                rectTransform.offsetMax = new Vector2(0.0f, rectTransform.offsetMax.y);
+                break;
+            case 10:
+                rectTransform.offsetMin = new Vector2(0.0f, rectTransform.offsetMin.y);
+                rectTransform.offsetMax = new Vector2(0.0f, rectTransform.offsetMax.y);
                 break;
             default:
                 break;

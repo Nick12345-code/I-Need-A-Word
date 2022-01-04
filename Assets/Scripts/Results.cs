@@ -36,7 +36,7 @@ public class Results : MonoBehaviour
 
         foreach (GameObject letter in wordUI.playerLetters)
         {
-            letter.GetComponent<Image>().CrossFadeColor(winColor, colorChangeTime, true, false);
+            letter.GetComponentInChildren<Image>().CrossFadeColor(winColor, colorChangeTime, true, false);
         }
 
         yield return delay;
@@ -53,7 +53,7 @@ public class Results : MonoBehaviour
 
         foreach (GameObject letter in wordUI.enemyLetters)
         {
-            letter.GetComponent<Image>().CrossFadeColor(winColor, colorChangeTime, true, false);
+            letter.GetComponentInChildren<Image>().CrossFadeColor(winColor, colorChangeTime, true, false);
         }
 
         yield return delay;
