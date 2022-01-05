@@ -646,7 +646,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 230, y: 230}
-  m_Spacing: {x: -30, y: -30}
+  m_Spacing: {x: -40, y: -40}
   m_Constraint: 2
   m_ConstraintCount: 3
 --- !u!114 &317425579
@@ -3187,7 +3187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 50738941068331836, guid: 1a6bb467b90259944ba93aba4299e9b9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50738941068331839, guid: 1a6bb467b90259944ba93aba4299e9b9, type: 3}
       propertyPath: m_Pivot.x
