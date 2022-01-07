@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 317425580}
   - component: {fileID: 317425579}
   - component: {fileID: 317425578}
+  - component: {fileID: 317425581}
   m_Layer: 5
   m_Name: Panel - Keyboard
   m_TagString: Untagged
@@ -687,6 +688,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317425576}
   m_CullTransparentMesh: 1
+--- !u!114 &317425581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317425576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9550c61c1ca71444cac326e2141363da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 0
+  something: 9
 --- !u!1 &317519219
 GameObject:
   m_ObjectHideFlags: 0
