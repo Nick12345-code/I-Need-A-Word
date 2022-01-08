@@ -9,7 +9,7 @@ public class EnemyState : BaseState
     public override void Enter()
     {
         isDone = false;
-        sm.buttonGenerator.keyboardButton.enabled = false;
+        sm.buttonGenerator.toggleKeyboardButton.enabled = false;
         sm.UpdateTurnText("COMPUTER IS THINKING");
     }
 

@@ -11,8 +11,6 @@ public class SetupState : BaseState
         sm.wordUI.GenerateLetters(sm.wordUI.playerPanel, sm.wordUI.playerLetters);
         sm.wordUI.GenerateLetters(sm.wordUI.enemyPanel, sm.wordUI.enemyLetters);
 
-        sm.buttonGenerator.GenerateButtons();
-
         stateMachine.ChangeState(sm.playerState);
     }
 }

@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class GridLayoutHelper : MonoBehaviour
 {
-    public float width;
-    public float something;
+    float width;
+    public float height;
 
     void Update()
     {
-        width = this.gameObject.GetComponent<RectTransform>().rect.width;
-        Vector2 newSize = new Vector2(width / something, width / something);
-        this.gameObject.GetComponent<GridLayoutGroup>().cellSize = newSize;
+        width = GetComponent<RectTransform>().rect.width;
+        Vector2 newSize = new Vector2(width / height, width / height);
+        GetComponent<GridLayoutGroup>().cellSize = newSize;
     }
 }
