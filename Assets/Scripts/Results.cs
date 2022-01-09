@@ -8,6 +8,7 @@ public class Results : MonoBehaviour
 {
     [SerializeField] WordGenerator wordGenerator;
     [SerializeField] WordUI wordUI;
+    AudioManager audioManager;
     [SerializeField] GameObject resultsPanel;
     [SerializeField] TextMeshProUGUI resultsText;
     [SerializeField] TextMeshProUGUI wordText;
@@ -17,8 +18,13 @@ public class Results : MonoBehaviour
     [Header("Game Over Effect")]
     [SerializeField] Color winColor;
     [SerializeField] float colorChangeTime = 2.5f;
+    [SerializeField] AudioClip correctWordSound;
 
-    void Awake() => eventSystem = FindObjectOfType<EventSystem>();
+    void Awake()
+    {
+        eventSystem = FindObjectOfType<EventSystem>();
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     public void ShowResults(string result, string word)
     {
@@ -33,6 +39,8 @@ public class Results : MonoBehaviour
     IEnumerator WinSequence()
     {
         eventSystem.enabled = false;
+
+        audioManager.PlaySound(correctWordSound);
 
         foreach (GameObject letter in wordUI.playerLetters)
         {

@@ -1078,6 +1078,8 @@ MonoBehaviour:
   hadTurn: 0
   correctColor: {r: 0.24705882, g: 0.8627451, b: 0.6156863, a: 1}
   incorrectColor: {r: 1, g: 0.27450982, b: 0.30980393, a: 1}
+  correctLetterSound: {fileID: 8300000, guid: 9087c6dcb821e174b9ebc29f1860f891, type: 3}
+  incorrectLetterSound: {fileID: 8300000, guid: 2a0af05eea5e36248a80b6360e8b27d2, type: 3}
 --- !u!114 &211788753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1621,6 +1623,18 @@ MonoBehaviour:
           m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 553921804}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a6196197b9a2fd4796a93a90adcd9be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &317519222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,6 +1898,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Game
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 553921804}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 7a6196197b9a2fd4796a93a90adcd9be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &388867615
@@ -2714,7 +2740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9550c61c1ca71444cac326e2141363da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 9
+  height: 10.5
 --- !u!114 &539610003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,7 +2800,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: -30, y: 0}
+  m_Spacing: {x: 3, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
 --- !u!1 &553921800
@@ -2788,6 +2814,7 @@ GameObject:
   - component: {fileID: 553921803}
   - component: {fileID: 553921802}
   - component: {fileID: 553921801}
+  - component: {fileID: 553921804}
   m_Layer: 3
   m_Name: Camera - Main
   m_TagString: MainCamera
@@ -2862,6 +2889,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553921804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553921800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb59cfd0ab71c34dbfa5c861fd82060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxAudioSource: {fileID: 1952051370}
 --- !u!1 &571427594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,6 +4396,18 @@ MonoBehaviour:
           m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 553921804}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: fec05615770c033439748d45eaaa0cde, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &868398070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4713,7 +4765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9550c61c1ca71444cac326e2141363da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 9
+  height: 10.5
 --- !u!114 &1028067328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4773,7 +4825,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: -30, y: 0}
+  m_Spacing: {x: 3, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
 --- !u!1 &1043784953
@@ -5275,6 +5327,7 @@ MonoBehaviour:
   loseSentence: You Lost!
   winColor: {r: 0.24705882, g: 0.8627451, b: 0.6156863, a: 1}
   colorChangeTime: 2.5
+  correctWordSound: {fileID: 8300000, guid: 04a9e1ece62284446b27ea83e0c5ccf8, type: 3}
 --- !u!1 &1217263024
 GameObject:
   m_ObjectHideFlags: 0
@@ -6843,6 +6896,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 553921804}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: fec05615770c033439748d45eaaa0cde, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1740148175

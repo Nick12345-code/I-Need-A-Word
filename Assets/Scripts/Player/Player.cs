@@ -9,11 +9,15 @@ public class Player : MonoBehaviour
     [SerializeField] WordUI ui;
     [SerializeField] WordGenerator generator;
     public PlayerScore playerScore;
+    AudioManager audioManager;
     [Header("Setup")]
     [SerializeField] GameObject keyboardPanel;
     GameObject selected;
     public bool hadTurn;
     [SerializeField] Color correctColor, incorrectColor;
+    [SerializeField] AudioClip correctLetterSound, incorrectLetterSound;
+
+    void Awake() => audioManager = FindObjectOfType<AudioManager>();
 
     public void CheckIfPlayerChoseCorrectLetter()
     {
@@ -24,6 +28,7 @@ public class Player : MonoBehaviour
             if (letter.ToString() == selected.GetComponentInChildren<TextMeshProUGUI>().text)
             {
                 Result(correctColor);
+                audioManager.PlaySound(correctLetterSound);
 
                 foreach (GameObject letterText in ui.playerLetters)
                 {
@@ -33,6 +38,7 @@ public class Player : MonoBehaviour
                         playerScore.IncreaseCorrectLetters();
                     }
                 }
+
                 CheckIfPlayerHasWon();
                 keyboardPanel.SetActive(false);
                 hadTurn = true;
@@ -45,6 +51,7 @@ public class Player : MonoBehaviour
             if (letter.ToString() != selected.GetComponentInChildren<TextMeshProUGUI>().text)
             {
                 Result(incorrectColor);
+                audioManager.PlaySound(incorrectLetterSound);
                 keyboardPanel.SetActive(false);
                 hadTurn = true;
                 return;
