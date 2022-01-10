@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
     {
         foreach (GameObject letter in ui.enemyLetters)
         {
-            if (letter.GetComponentInChildren<Image>().color != Color.yellow) return;
+            if (letter.GetComponentInChildren<Image>().color != correctColor) return;
         }
         GameManager.Instance.hasLost = true;
     }
